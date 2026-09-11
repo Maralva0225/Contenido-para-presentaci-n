@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodología 8D - Gráfico</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #ffffff !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* SVG text optimizations */
+        svg text {
+            user-select: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Animación de flotación sutil para los íconos */
+        @keyframes subtleFloating {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .icon-subtle-float {
+            animation: subtleFloating 3.2s ease-in-out infinite;
+            transform-origin: center;
+            transform-box: fill-box;
+            will-change: transform;
+        }
+
+        /* Desfase orgánico para cada ícono */
+        .delay-0 { animation-delay: 0s; }
+        .delay-1 { animation-delay: 0.35s; }
+        .delay-2 { animation-delay: 0.7s; }
+        .delay-3 { animation-delay: 1.05s; }
+        .delay-4 { animation-delay: 1.4s; }
+        .delay-5 { animation-delay: 1.75s; }
+        .delay-6 { animation-delay: 2.1s; }
+        .delay-7 { animation-delay: 2.45s; }
+        .delay-8 { animation-delay: 2.8s; }
+
+        /* Estilo estático para los botones de más (+) sin animación */
+        .btn-plus {
+            cursor: pointer;
+            transform-origin: center;
+            transform-box: fill-box;
+            transition: opacity 0.2s ease, filter 0.2s ease;
+        }
+
+        .btn-plus:hover {
+            filter: drop-shadow(0 2px 5px rgba(4, 99, 81, 0.3));
+        }
+
+        .btn-plus circle {
+            transition: fill 0.25s ease, stroke 0.25s ease;
+        }
+
+        .btn-plus:hover circle {
+            fill: #00a095;
+        }
+
+        /* Estado al hacer clic: cambio de color permanente a verde claro distintivo */
+        .btn-plus.btn-clicked circle {
+            fill: #00cc6f !important;
+            stroke: #046351;
+            stroke-width: 1.2;
+        }
+
+        .btn-plus.btn-clicked:hover circle {
+            fill: #7ddf87 !important;
+        }
+
+        /* Estilo para el botón de más información */
+        .btn-more-info {
+            cursor: pointer;
+            transition: filter 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn-more-info:hover {
+            filter: drop-shadow(0 2px 6px rgba(4, 99, 81, 0.4));
+        }
+
+        .btn-more-info:hover rect {
+            fill: #057a64;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen w-full flex items-center justify-center p-3 sm:p-8 overflow-x-hidden">
+
+    <main class="w-full max-w-6xl flex items-center justify-center">
+        <!-- SVG Vectorial ajustado sin sombra y con íconos flotantes y botones (+) -->
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 -18 1105.96 334" class="w-full h-auto max-h-[92vh] select-none">
+            <defs>
+                <style>
+                    .st9 { fill: #00a095; }
+                    .st19 { fill: #92a89c; }
+                    .st21 { font-family: Verdana-Bold, Verdana, sans-serif; font-weight: 700; }
+                    .st35 { isolation: isolate; }
+                    .st39 { fill: #00cc6f; }
+                    .st45 { font-size: 16px; }
+                    .st64 { font-family: Verdana, Verdana, sans-serif; }
+                    .st76 { fill: #c6ecd0; }
+                    .st88 { fill: none; stroke: #046351; stroke-miterlimit: 10; stroke-width: 1.6; }
+                    .st92 { fill: #7ddf87; }
+                </style>
+            </defs>
+
+            <g class="st35">
+                <g id="Capa_1">
+                    <!-- Rombos del Proceso y Flecha de Cierre D8 -->
+                    <path class="st19" d="M653.13,292.97l88.69-88.69-107.36-107.36-107.36,107.36,88.69,88.69c10.31,10.31,27.03,10.31,37.34,0Z"/>
+                    <path class="st39" d="M741.82,204.28l107.36-107.36-88.69-88.69c-10.31-10.31-27.03-10.31-37.34,0l-88.69,88.69,107.36,107.36Z"/>
+                    <path class="st9" d="M527.1,204.28l107.36-107.36-88.69-88.69c-10.31-10.31-27.03-10.31-37.34,0l-88.69,88.69,107.36,107.36Z"/>
+                    <path class="st9" d="M97.49,204.28l107.36-107.36L116.16,8.23c-10.31-10.31-27.03-10.31-37.34,0L6.98,80.06c-9.31,9.31-9.31,24.4,0,33.71l90.5,90.5Z"/>
+                    <path class="st92" d="M867.85,292.97l88.69-88.69-107.36-107.36-107.36,107.36,88.69,88.69c10.31,10.31,27.03,10.31,37.34,0Z"/>
+                    <path class="st76" d="M1050.16,0h-140.56c-2.94,0-4.41,3.56-2.33,5.63l16.6,16.6-74.69,74.69,107.36,107.36,74.69-74.69,16.6,16.6c2.08,2.08,5.63.61,5.63-2.33V3.3c0-1.82-1.48-3.3-3.3-3.3Z"/>
+                    <path class="st92" d="M312.38,204.28l107.36-107.36L331.05,8.23c-10.31-10.31-27.03-10.31-37.34,0l-88.69,88.69,107.36,107.36Z"/>
+                    <path class="st39" d="M223.69,292.97l88.69-88.69-107.36-107.36-107.36,107.36,88.69,88.69c10.31,10.31,27.03,10.31,37.34,0Z"/>
+                    <path class="st76" d="M438.41,292.97l88.69-88.69-107.36-107.36-107.36,107.36,88.69,88.69c10.31,10.31,27.03,10.31,37.34,0Z"/>
+
+                    <!-- Títulos y conceptos de cada paso -->
+                    <text class="st45" transform="translate(87.09 122.42)"><tspan class="st21"><tspan x="0" y="0">D0 </tspan></tspan><tspan class="st64"><tspan x="-22.1" y="19.2">Preparar</tspan></tspan></text>
+                    <text class="st45" transform="translate(191.6 218.74)"><tspan class="st21"><tspan x="0" y="0">D1</tspan></tspan><tspan class="st64"><tspan x="-14.81" y="19.2">Equipo</tspan></tspan></text>
+                    <text class="st45" transform="translate(301.9 122.42)"><tspan class="st21"><tspan x="0" y="0">D2</tspan></tspan><tspan class="st64"><tspan x="-14.28" y="19.2">Definir</tspan></tspan></text>
+                    <text class="st45" transform="translate(408.49 218.74)"><tspan class="st21"><tspan x="0" y="0">D3</tspan></tspan><tspan class="st64"><tspan x="-24.34" y="19.2">Contener</tspan></tspan></text>
+                    <text class="st45" transform="translate(518.79 122.42)"><tspan class="st21"><tspan x="0" y="0">D4</tspan></tspan><tspan class="st64"><tspan x="-20.91" y="19.2">Verificar </tspan></tspan><tspan class="st64"><tspan x="-14.85" y="38.4">causas</tspan></tspan></text>
+                    <text class="st45" transform="translate(625.84 218.74)"><tspan class="st21"><tspan x="0" y="0">D5</tspan></tspan><tspan class="st64"><tspan x="-38.35" y="19.2">Elegir acción</tspan></tspan></text>
+                    <text class="st45" transform="translate(728.03 122.42)"><tspan class="st21"><tspan x="0" y="0">D6 </tspan></tspan><tspan class="st64"><tspan x="-34.98" y="19.2">Implmentar</tspan></tspan></text>
+                    <text class="st45" transform="translate(837.66 218.74)"><tspan class="st21"><tspan x="0" y="0">D7</tspan></tspan><tspan class="st64"><tspan x="-20.85" y="19.2">Prevenir</tspan></tspan></text>
+                    <text class="st45" transform="translate(944.91 122.42)"><tspan class="st21"><tspan x="0" y="0">D8</tspan></tspan><tspan class="st64"><tspan x="-13.07" y="19.2">Cerrar</tspan></tspan></text>
+
+                    <!-- Botón "Más información" ubicado arriba del cuadro D3, en el valle despejado entre D2 y D4 -->
+                    <g class="btn-more-info" onclick="openRelationModal()" transform="translate(419.74, 22)">
+                        <!-- Fondo píldora estilizado e integrado con holgura lateral -->
+                        <rect x="-66" y="-13" width="132" height="26" rx="13" fill="#046351" stroke="#00cc6f" stroke-width="1.5" />
+                        
+                        <!-- Círculo de ícono informativo (i) perfectamente separado -->
+                        <circle cx="-46" cy="0" r="6.5" fill="#ffffff" />
+                        <text x="-46" y="3.3" fill="#046351" font-family="Verdana, sans-serif" font-size="9.5" font-weight="bold" text-anchor="middle">i</text>
+                        
+                        <!-- Texto del botón con ancla izquierda para evitar todo empalme con el ícono -->
+                        <text x="-33" y="3.5" fill="#ffffff" font-family="Verdana, sans-serif" font-size="10" font-weight="bold" text-anchor="start" letter-spacing="0.2">Más información</text>
+                    </g>
+
+                    <!-- Botones de más (+) exactamente centrados en el eje vertical de cada rombo y concepto -->
+                    <!-- D0: eje central X=97.49 -->
+                    <g class="btn-plus" onclick="openStepModal('D0', this)" transform="translate(97.49, 168)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D1: eje central X=204.85 -->
+                    <g class="btn-plus" onclick="openStepModal('D1', this)" transform="translate(204.85, 263)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D2: eje central X=312.38 -->
+                    <g class="btn-plus" onclick="openStepModal('D2', this)" transform="translate(312.38, 168)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D3: eje central X=419.74 -->
+                    <g class="btn-plus" onclick="openStepModal('D3', this)" transform="translate(419.74, 263)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D4: eje central X=527.10 (ajustado verticalmente tras 2 líneas de texto) -->
+                    <g class="btn-plus" onclick="openStepModal('D4', this)" transform="translate(527.10, 183)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D5: eje central X=634.46 -->
+                    <g class="btn-plus" onclick="openStepModal('D5', this)" transform="translate(634.46, 263)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D6: eje central X=741.82 -->
+                    <g class="btn-plus" onclick="openStepModal('D6', this)" transform="translate(741.82, 168)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D7: eje central X=849.18 -->
+                    <g class="btn-plus" onclick="openStepModal('D7', this)" transform="translate(849.18, 263)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D8: eje central X=956.54 -->
+                    <g class="btn-plus" onclick="openStepModal('D8', this)" transform="translate(956.54, 168)">
+                        <circle cx="0" cy="0" r="9.5" fill="#046351"/>
+                        <path d="M-4.5 0 h9 M0 -4.5 v9" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- D0: Ícono Portapapeles y Lápiz con flotación sutil -->
+                    <g class="icon-subtle-float delay-0" id="g-root-ic_pen_vb3j0j1qst2iw-stroke" data-item-order="0">
+                        <g id="ic_pen_vb3j0j1qst2iw-stroke">
+                            <path class="st88" d="M111.93,91.83c0,1.1-.9,2-2,2h-20c-1.1,0-2-.9-2-2v-32h24v32ZM83.93,79.83c-1.1,0-2-.9-2-2v-24c0-3.31,2.69-6,6-6s6,2.69,6,6-2.69,6-6,6M111.93,59.83c3.31,0,6-2.69,6-6s-2.69-6-6-6h-24M99.93,67.83h8M99.93,75.83h8M99.93,83.83h8M91.93,66.83l1,1,4-4M91.93,74.83l1,1,4-4M127.93,90.83c0,1.66-1.34,3-3,3s-3-1.34-3-3v-29c0-1.66,1.34-3,3-3s3,1.34,3,3v29ZM121.93,89.83h6M121.93,75.83h6M117.93,78.83v-15c0-1.66,1.34-3,3-3h1.17"/>
+                        </g>
+                    </g>
+
+                    <!-- D1: Ícono Equipo con flotación sutil -->
+                    <g class="icon-subtle-float delay-1" id="g-root-ic_1_3zojn1qsuhab-stroke" data-item-order="0">
+                        <g id="ic_1_3zojn1qsuhab-stroke">
+                            <path class="st88" d="M224.41,191.44c-1.98-3.05-5.37-4.88-9-4.88s-7.02,1.84-9,4.88M200.41,191.44c-1.98-3.05-5.37-4.88-9-4.88s-7.02,1.84-9,4.88M212.41,166.44c-1.98-3.05-5.37-4.88-9-4.88s-7.02,1.84-9,4.88M197.9,148.64c2.03,2.11,4.84,3.3,7.77,3.3,1.47,0,2.93-.3,4.28-.88M197.01,151.94c0,3.59,2.91,6.5,6.5,6.5s6.5-2.91,6.5-6.5-2.91-6.5-6.5-6.5-6.5,2.91-6.5,6.5ZM185.9,173.64c3.12,3.23,7.92,4.2,12.04,2.42M185.01,176.94c0,3.59,2.91,6.5,6.5,6.5s6.5-2.91,6.5-6.5-2.91-6.5-6.5-6.5-6.5,2.91-6.5,6.5ZM209.9,173.64c3.12,3.23,7.92,4.2,12.04,2.42M209.01,176.94c0,3.59,2.91,6.5,6.5,6.5s6.5-2.91,6.5-6.5-2.91-6.5-6.5-6.5-6.5,2.91-6.5,6.5Z"/>
+                        </g>
+                    </g>
+
+                    <!-- D2: Ícono Lupa y Documento con flotación sutil -->
+                    <g class="icon-subtle-float delay-2" id="g-root-ic_2_vcch6r1qsui2u-stroke" data-item-order="0">
+                        <g id="ic_2_vcch6r1qsui2u-stroke">
+                            <path class="st88" d="M317.52,78.63c8.51,0,15.4-6.89,15.4-15.4s-6.89-15.4-15.4-15.4-15.4,6.89-15.4,15.4,6.89,15.4,15.4,15.4ZM339.52,85.23l-11.2-11M298.52,53.83c-2.2,0-4,1.8-4,4v31c0,2.2,1.8,4,4,4h20c2.2,0,4-1.8,4-4v-5M313.52,53.83h5c2.2,0,4,1.8,4,4v13M308.12,65.83h7M309.12,59.83h6M313.12,71.83h2"/>
+                        </g>
+                    </g>
+
+                    <!-- D3: Ícono Cubos / Nodos de Contención con flotación sutil -->
+                    <g class="icon-subtle-float delay-3" id="g-root-ic_medi_qrj6df1qsvwu9-stroke" data-item-order="0">
+                        <g id="ic_medi_qrj6df1qsvwu9-stroke">
+                            <path class="st88" d="M424.09,159.5l-5,2.8-5-2.8v-5.4l5-2.8,5,2.8v5.4ZM416.09,172.7l-5,2.8-5-2.8v-5.4l5-2.8,5,2.8v5.4ZM432.09,172.7l-5,2.8-5-2.8v-5.4l5-2.8,5,2.8v5.4ZM406.09,158.5l-7.6-4M432.09,158.5l7.4-4M419.09,179.9v8.2M419.09,188.1l-20.6-11.4v-22.2l20.6-11.4,20.4,11.4v22.2l-20.4,11.4ZM419.09,151.3v-8.2M406.09,172.7l-7.6,4M432.09,172.7l7.4,4"/>
+                        </g>
+                    </g>
+
+                    <!-- D4: Ícono Causas con flotación sutil -->
+                    <g class="icon-subtle-float delay-4" id="g-root-ic_root_8u0z1qsxatg-stroke" data-item-order="0">
+                        <g id="ic_root_8u0z1qsxatg-stroke">
+                            <path class="st88" d="M540.63,67.07v-12h-22v26h10M546.63,63.07v-12c0-1.1-.9-2-2-2h-8.9c-1.06-2.42-3.45-3.99-6.1-3.99s-5.04,1.57-6.1,3.99h-8.9c-1.1,0-2,.9-2,2v34c0,1.1.9,2,2,2h15M524.63,61.07h10M524.63,67.07h10M524.63,73.07h6M546.63,85.07c.28,0,.5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5M546.63,81.07v-6M548.31,69.08c-.33-.62-.97-1.01-1.68-1.01s-1.35.39-1.68,1.01l-10.11,19.27c-.3.58-.28,1.27.06,1.83.35.56.96.9,1.61.9h20.22c.66,0,1.27-.34,1.61-.9.34-.56.37-1.25.06-1.83l-10.11-19.27Z"/>
+                        </g>
+                    </g>
+
+                    <!-- D5: Ícono Elegir Acción con flotación sutil -->
+                    <g class="icon-subtle-float delay-5" id="g-root-ic_voti_zof4sj1qsxatr-stroke" data-item-order="0">
+                        <g id="ic_voti_zof4sj1qsxatr-stroke">
+                            <path class="st88" d="M629.56,164.44c0-1.1-.9-2-2-2h-6c-1.1,0-2,.9-2,2M634.56,164.45c0-1.1.9-2,2-2h20c1.1,0,2,.9,2,2v5c0,1.1-.9,2-2,2h-20c-1.1,0-2-.9-2-2v-5ZM619.56,150.44c0-1.1.9-2,2-2h6c1.1,0,2,.9,2,2v5c0,1.1-.9,2-2,2h-6c-1.1,0-2-.9-2-2v-5ZM634.56,150.44c0-1.1.9-2,2-2h20c1.1,0,2,.9,2,2v5c0,1.1-.9,2-2,2h-20c-1.1,0-2-.9-2-2v-5ZM639.69,190.44l.2-2.25c.27-3.01-1.73-5.75-4.67-6.4l-7.3-1.62v-9.68c0-2.07-1.68-3.75-3.75-3.75s-3.75,1.68-3.75,3.75v16.6l-2.96-2.22c-1.22-.91-2.93-.79-4.01.29-1.08,1.08-1.2,2.79-.29,4.01l.95,1.26"/>
+                        </g>
+                    </g>
+
+                    <!-- D6: Ícono Engranajes de Implementación con flotación sutil -->
+                    <g class="icon-subtle-float delay-6" id="g-root-ic_1_4l24ub1qsyoe8-stroke" data-item-order="0">
+                        <g id="ic_1_4l24ub1qsyoe8-stroke">
+                            <path class="st88" d="M742.7,61.56l.8,2.6c.2,1,1.2,1.4,2.2,1.2l2.6-.6c2.4-.6,4,2.2,2.4,4l-1.8,2c-.6.8-.6,1.8,0,2.4l1.8,2c1.6,1.8,0,4.6-2.4,4l-2.6-.6c-1-.2-1.8.4-2.2,1.2l-.8,2.6c-.8,2.4-4,2.4-4.6,0l-.8-2.6c-.2-1-1.2-1.4-2.2-1.2l-2.6.6c-2.4.6-4-2.2-2.4-4l1.8-2c.6-.8.6-1.8,0-2.4l-1.8-2c-1.6-1.8,0-4.6,2.4-4l2.6.6c1,.2,1.8-.4,2.2-1.2l.8-2.6c.6-2.4,4-2.4,4.6,0ZM756.85,78.36c.2.8,1,1.2,1.6,1l2-.4c1.8-.4,3,1.8,1.8,3.2l-1.4,1.6c-.6.6-.6,1.4,0,2l1.4,1.6c1.2,1.4,0,3.6-1.8,3.2l-2-.4c-.8-.2-1.4.2-1.6,1l-.6,2c-.6,1.8-3,1.8-3.6,0l-.6-2c-.2-.8-1-1.2-1.6-1l-2,.4c-1.8.4-3-1.8-1.8-3.2l1.4-1.6M724.52,87.08c-8.6-8.6-8.6-22.6,0-31.2,6.6-6.6,16.2-8.2,24.2-4.6M761.12,56.48l-5.6-.4-.4,5.6M718.92,86.48l5.6.6.6-5.6M755.52,56.08c4.6,4.6,6.8,10.6,6.4,16.6M740.52,93.68c-3.2,0-6.2-.6-9.2-1.8M740.4,74.79c1.57,0,2.84-1.27,2.84-2.84s-1.27-2.84-2.84-2.84-2.84,1.27-2.84,2.84,1.27,2.84,2.84,2.84ZM754.45,86.91c1.16,0,2.1-.94,2.1-2.1s-.94-2.1-2.1-2.1-2.1.94-2.1,2.1.94,2.1,2.1,2.1Z"/>
+                        </g>
+                    </g>
+
+                    <!-- D7: Ícono Escudo de Prevención con flotación sutil -->
+                    <g class="icon-subtle-float delay-7" id="g-root-ic_sign_13z8u831qt02z2-stroke" data-item-order="0">
+                        <g id="ic_sign_13z8u831qt02z2-stroke">
+                            <path class="st88" d="M855.36,190.56h-20c-1.1,0-2-.9-2-2v-42c0-1.1.9-2,2-2h26.59c.53,0,1.04.21,1.41.59l7.41,7.41c.38.37.59.88.59,1.41v4.59M851.31,174.56c-5.07-.03-9.32-3.85-9.89-8.89-.56-5.04,2.74-9.71,7.68-10.85,4.94-1.15,9.96,1.59,11.67,6.37M851.36,158.56v6h4M864.98,177.62c0,1.59,1.29,2.87,2.87,2.87s2.87-1.29,2.87-2.87-1.29-2.87-2.87-2.87-2.87,1.29-2.87,2.87ZM870.3,166.5l.85,2.78c.29.96,1.27,1.53,2.25,1.31l2.82-.65c1.1-.25,2.23.25,2.79,1.23.56.98.42,2.2-.35,3.03l-1.98,2.13c-.68.74-.68,1.87,0,2.61l1.98,2.13c.77.82.91,2.05.35,3.03-.56.98-1.69,1.47-2.79,1.23l-2.82-.65c-.97-.22-1.95.35-2.24,1.3l-.85,2.78c-.32,1.08-1.32,1.82-2.44,1.82s-2.12-.74-2.44-1.82l-.86-2.78c-.29-.96-1.27-1.53-2.25-1.31l-2.82.65c-1.1.25-2.23-.25-2.79-1.23-.56-.98-.42-2.2.35-3.03l1.98-2.13c.68-.74.68-1.87,0-2.61l-1.98-2.13c-.77-.82-.91-2.05-.35-3.03.56-.98,1.69-1.47,2.79-1.23l2.82.65c.98.22,1.96-.35,2.25-1.31l.85-2.78c.32-1.08,1.32-1.82,2.44-1.81,1.13,0,2.12.74,2.44,1.82Z"/>
+                        </g>
+                    </g>
+
+                    <!-- D8: Ícono Trofeo / Cierre con flotación sutil -->
+                    <g class="icon-subtle-float delay-8" id="g-root-ic_trop_hxrldv1qt02dg-stroke" data-item-order="0">
+                        <g id="ic_trop_hxrldv1qt02dg-stroke">
+                            <path class="st88" d="M937.02,102.53h10c2.21,0,4-1.79,4-4v-4c0-2.21-1.79-4-4-4h-10M947.02,102.53h33c2.2,0,3-1.79,3-4v-4c0-2.2-.8-4-3-4h-33M975.02,90.53v12M971.02,90.53v12M963.02,90.53v12M959.02,90.53v12M947.02,98.53h-8M947.02,94.53h-8M966.02,90.53v-2.26c0-.42-.26-.79-.65-.93-2.8-1.05-4.57-3.82-4.35-6.8,0-6.89,7.75,1.72,8-18.97,0-.56-.44-1.02-1-1.03h-17.99c-.56,0-1.01.47-1,1.03.25,20.69,8,12.08,8,18.97.22,2.98-1.55,5.75-4.35,6.8-.39.14-.65.52-.66.94v2.26M949.02,62.53h-3.94c-.28,0-.55.12-.74.33-.19.21-.28.49-.26.77.23,2.6.83,8.9,6.39,8.9M969.02,62.53h3.94c.28,0,.55.12.74.33.19.21.28.49.26.77-.23,2.6-.83,8.9-6.39,8.9"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </main>
+
+    <!-- Modal informativo discreto al hacer clic en el botón de más (+) -->
+    <div id="step-modal-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-200 flex items-center justify-center p-4">
+        <div id="step-modal-card" class="bg-white rounded-2xl max-w-xl w-full p-6 sm:p-7 shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-200 relative">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div class="flex items-center space-x-2.5">
+                    <span id="modal-badge" class="px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-xs">D0</span>
+                    <h3 id="modal-title" class="font-bold text-slate-800 text-base sm:text-lg">Título del paso</h3>
+                </div>
+                <button onclick="closeStepModal()" aria-label="Cerrar modal" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition flex items-center justify-center text-base font-semibold cursor-pointer">
+                    ✕
+                </button>
+            </div>
+            <div id="modal-content" class="pt-4 text-xs sm:text-sm leading-relaxed text-slate-600 space-y-3 max-h-[65vh] overflow-y-auto pr-1">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stepDescriptions = {
+            "D0": {
+                badge: "D0",
+                title: "Preparar y planificar",
+                paragraphs: [
+                    "Se evalúan la emergencia, la severidad, el alcance inicial y la necesidad de iniciar un 8D. También se designa un responsable, se recopilan los datos disponibles y se decide si deben suspenderse entregas. Además, se determina si es necesario activar un protocolo o informar a las partes interesadas.",
+                    "D0 evita comenzar una investigación sin proteger primero a las personas o los clientes. La salida mínima incluye una decisión documentada, alcance preliminar, medidas de respuesta inmediata y calendario de comunicación.",
+                    "<strong>Nota clave:</strong> No todos los problemas requieren 8D. La preparación también puede concluir que basta una corrección local o un A3."
+                ]
+            },
+            "D1": {
+                badge: "D1",
+                title: "Formar el equipo",
+                paragraphs: [
+                    "El equipo debe reunir conocimientos sobre producto, proceso, calidad, mantenimiento, ingeniería, logística y relación con el cliente, según el caso. Cada integrante necesita una función, tiempo asignado y autoridad para obtener información. Se recomienda un grupo manejable con líder y patrocinador. Pueden convocarse especialistas temporales.",
+                    "El criterio de salida no es una lista de nombres. Es la confirmación de que están representadas las competencias necesarias. También deben acordarse la frecuencia de reuniones, el repositorio de evidencia, las reglas para decisiones y el mecanismo de escalamiento."
+                ]
+            },
+            "D2": {
+                badge: "D2",
+                title: "Describir el problema",
+                paragraphs: [
+                    "La descripción responde qué, dónde, cuándo, quién o qué población, cuánto, cómo se detectó y cuál requisito se incumple. Es útil contrastar “es” y “no es”. Por ejemplo, el defecto aparece en el modelo A, no en el B. También puede ocurrir en el turno nocturno y no en el matutino. Puede haber comenzado después de una modificación sin estar presente en lotes anteriores.",
+                    "Esta comparación delimita la investigación y ayuda a identificar diferencias relevantes. La descripción debe actualizarse si surge nueva evidencia, sin sustituir silenciosamente la versión original."
+                ]
+            },
+            "D3": {
+                badge: "D3",
+                title: "Desarrollar e implementar acciones de contención provisional",
+                paragraphs: [
+                    "Las acciones protegen al cliente mientras se determina la causa. Pueden incluir inspección al 100 %, bloqueo de inventario, clasificación, cambio temporal de proveedor, respaldo de servicio o comunicación preventiva.",
+                    "Cada medida necesita validación, responsable, vigencia, costo y criterio de retiro. Una inspección adicional puede reducir escapes, pero no debe mantenerse indefinidamente. Consume recursos y puede crear una falsa sensación de solución.",
+                    "El equipo debe medir su eficacia mediante indicadores. Entre ellos pueden encontrarse piezas revisadas, defectos retenidos, lotes liberados y reclamaciones posteriores."
+                ]
+            },
+            "D4": {
+                badge: "D4",
+                title: "Identificar y verificar causas raíz y puntos de escape",
+                paragraphs: [
+                    "La causa de ocurrencia explica por qué se generó el defecto. La causa de escape explica por qué los controles no lo identificaron antes de llegar a la siguiente etapa o al cliente. Ambas son necesarias.",
+                    "Una causa se verifica cuando el equipo demuestra que su presencia reproduce el problema. También debe demostrar que su control modifica el resultado, dentro de las posibilidades técnicas. Las herramientas causales generan hipótesis, pero no constituyen por sí mismas la prueba.",
+                    "También deben investigarse causas sistémicas, como procedimientos desactualizados y parámetros sin control. Otros ejemplos son cambios de ingeniería mal comunicados o planes de inspección que no reflejan el riesgo real."
+                ]
+            },
+            "D5": {
+                badge: "D5",
+                title: "Seleccionar y verificar acciones correctivas permanentes",
+                paragraphs: [
+                    "Las alternativas se evalúan según eficacia, riesgo, costo, plazo, factibilidad, impacto ambiental y posibles efectos secundarios. Verificar una acción significa demostrar, antes de su despliegue general, que puede eliminar la causa sin crear nuevos problemas.",
+                    "Puede utilizarse un piloto, una simulación, un lote controlado, una prueba de capacidad o una revisión técnica. La decisión debe conservar evidencia del criterio utilizado. Elegir la acción más rápida o económica sin evaluar su capacidad causal puede provocar recurrencia."
+                ]
+            },
+            "D6": {
+                badge: "D6",
+                title: "Implementar y validar las acciones permanentes",
+                paragraphs: [
+                    "La implementación incluye recursos, responsables, fechas, actualización documental y retiro controlado de la contención. La validación se realiza con datos de operación y confirma que el problema no reaparece durante un periodo representativo.",
+                    "Conviene evaluar indicadores de resultado y de proceso. Estos pueden incluir tasa de defectos, reclamaciones, estabilidad del parámetro, cumplimiento del nuevo método y desempeño del control. La acción no debe cerrarse solo porque fue instalada. Requiere evidencia de eficacia sostenida."
+                ]
+            },
+            "D7": {
+                badge: "D7",
+                title: "Prevenir recurrencias",
+                paragraphs: [
+                    "El aprendizaje se extiende a productos, procesos, plantas o servicios que comparten condiciones semejantes. Se actualizan procedimientos, instrucciones, planes de control, análisis de riesgos, especificaciones, programas de mantenimiento, formación y criterios de auditoría.",
+                    "La prevención no significa copiar la misma acción en toda la organización. Implica determinar dónde existe una exposición comparable. Esta disciplina transforma una solución puntual en aprendizaje institucional. También evita que la causa reaparezca bajo otro código o proceso."
+                ]
+            },
+            "D8": {
+                badge: "D8",
+                title: "Reconocer al equipo y cerrar",
+                paragraphs: [
+                    "El cierre confirma que las acciones se completaron, la eficacia fue validada y la contención se retiró. También confirma que la documentación se actualizó y que las partes interesadas aceptaron el resultado.",
+                    "El reconocimiento identifica las contribuciones del equipo y refuerza la participación futura. No sustituye la revisión crítica de las dificultades. La lección aprendida debe indicar qué señales permitieron detectar el problema y qué supuestos resultaron incorrectos. También debe señalar qué cambios mejoraron la investigación."
+                ]
+            }
+        };
+
+        function openStepModal(stepKey, btnEl) {
+            // Cambiar el color del botón al hacer clic de forma permanente
+            if (btnEl) {
+                btnEl.classList.add('btn-clicked');
+            }
+
+            const data = stepDescriptions[stepKey];
+            if (!data) return;
+
+            document.getElementById('modal-badge').innerText = data.badge;
+            document.getElementById('modal-title').innerText = data.title;
+            
+            const card = document.getElementById('step-modal-card');
+            card.classList.remove('max-w-2xl');
+            card.classList.add('max-w-xl');
+
+            const contentContainer = document.getElementById('modal-content');
+            contentContainer.innerHTML = data.paragraphs.map(p => `<p>${p}</p>`).join('');
+
+            const overlay = document.getElementById('step-modal-overlay');
+
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-95');
+            card.classList.add('scale-100');
+        }
+
+        function openRelationModal() {
+            document.getElementById('modal-badge').innerText = "D2 · D3 · D4";
+            document.getElementById('modal-title').innerText = "Control y relación de componentes";
+
+            const card = document.getElementById('step-modal-card');
+            card.classList.remove('max-w-xl');
+            card.classList.add('max-w-2xl');
+
+            const contentContainer = document.getElementById('modal-content');
+            contentContainer.innerHTML = `
+                <p class="font-medium text-slate-700 text-xs sm:text-sm">
+                    La relación entre D2, D3 y D4 puede controlarse mediante el siguiente registro:
+                </p>
+                <div class="pt-1">
+                    <h4 class="font-bold text-emerald-800 text-xs uppercase tracking-wider mb-2">
+                        Diferencias entre los componentes centrales de un 8D
+                    </h4>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                        <table class="w-full text-left text-xs border-collapse">
+                            <thead>
+                                <tr class="bg-emerald-50/80 text-emerald-900 border-b border-emerald-100">
+                                    <th class="py-2.5 px-3 font-bold">Elemento</th>
+                                    <th class="py-2.5 px-3 font-bold">Definición</th>
+                                    <th class="py-2.5 px-3 font-bold">Evidencia</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-600">
+                                <tr class="hover:bg-slate-50/60 transition-colors">
+                                    <td class="py-2 px-3 font-semibold text-slate-800">Problema</td>
+                                    <td class="py-2 px-3">Brecha respecto del requisito</td>
+                                    <td class="py-2 px-3">Registro de defecto, queja o indicador</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/60 transition-colors bg-slate-50/40">
+                                    <td class="py-2 px-3 font-semibold text-slate-800">Contención</td>
+                                    <td class="py-2 px-3">Protección temporal</td>
+                                    <td class="py-2 px-3">Lotes bloqueados, inspección o respaldo</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/60 transition-colors">
+                                    <td class="py-2 px-3 font-semibold text-slate-800">Causa de ocurrencia</td>
+                                    <td class="py-2 px-3">Condición que produce la falla</td>
+                                    <td class="py-2 px-3">Prueba de reproducción y eliminación</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/60 transition-colors bg-slate-50/40">
+                                    <td class="py-2 px-3 font-semibold text-slate-800">Causa de escape</td>
+                                    <td class="py-2 px-3">Razón por la que no fue detectada</td>
+                                    <td class="py-2 px-3">Evaluación del control</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/60 transition-colors">
+                                    <td class="py-2 px-3 font-semibold text-slate-800">Acción permanente</td>
+                                    <td class="py-2 px-3">Cambio que elimina la causa</td>
+                                    <td class="py-2 px-3">Validación antes-después</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/60 transition-colors bg-slate-50/40">
+                                    <td class="py-2 px-3 font-semibold text-slate-800">Prevención sistémica</td>
+                                    <td class="py-2 px-3">Cambio que evita problemas similares</td>
+                                    <td class="py-2 px-3">Estándares, AMEF y lecciones aprendidas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            const overlay = document.getElementById('step-modal-overlay');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-95');
+            card.classList.add('scale-100');
+        }
+
+        function closeStepModal() {
+            const overlay = document.getElementById('step-modal-overlay');
+            const card = document.getElementById('step-modal-card');
+
+            card.classList.remove('scale-100');
+            card.classList.add('scale-95');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Cerrar al dar clic en el fondo oscuro
+        document.getElementById('step-modal-overlay').addEventListener('click', (e) => {
+            if (e.target.id === 'step-modal-overlay') {
+                closeStepModal();
+            }
+        });
+    </script>
+</body>
+</html>
